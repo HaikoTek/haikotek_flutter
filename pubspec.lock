@@ -201,6 +201,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.4.3+1"
+  ejson:
+    dependency: transitive
+    description:
+      name: ejson
+      sha256: f336c6fb6c5c97db8ae59ba8ed207f542241f1db39cf2ef03776d308de3432ff
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.0"
+  ejson_annotation:
+    dependency: transitive
+    description:
+      name: ejson_annotation
+      sha256: b265eea722ee340d77d1c36a55a1f963d517a0dabb569b0775664c319a4e3ebf
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.0"
   email_validator:
     dependency: "direct main"
     description:
@@ -250,10 +266,10 @@ packages:
     dependency: "direct dev"
     description:
       name: flutter_lints
-      sha256: a25a15ebbdfc33ab1cd26c63a6ee519df92338a9c10f122adda92938253bef04
+      sha256: "3f41d009ba7172d5ff9be5f6e6e6abb4300e263aab8866d2a0842ed2a70f8f0c"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.3"
+    version: "4.0.0"
   flutter_riverpod:
     dependency: "direct main"
     description:
@@ -375,10 +391,10 @@ packages:
     dependency: transitive
     description:
       name: lints
-      sha256: "0a217c6c989d21039f1498c3ed9f3ed71b354e69873f13a8dfc3c9fe76f1b452"
+      sha256: "976c774dd944a42e83e2467f4cc670daef7eed6295b10b36ae8c85bcbf828235"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.1"
+    version: "4.0.0"
   logger:
     dependency: "direct main"
     description:
@@ -479,34 +495,34 @@ packages:
     dependency: "direct main"
     description:
       name: realm
-      sha256: a53b6903e2f6603c906bf5aac3691f0b2f45262aa08525a4bd546900602f2f17
+      sha256: "1169e97892d394cfb9bfa13f31797bbbf49d4402c6c9de6ed60aab8a973a6a89"
       url: "https://pub.dev"
     source: hosted
-    version: "1.9.0"
+    version: "2.2.1"
   realm_common:
     dependency: transitive
     description:
       name: realm_common
-      sha256: "29516a9e43a9e75b2e16226ce24ccd9a549d9377e69be218394d8fb84da11183"
+      sha256: "10fa6c3265904ccbb07b2b847ea126de6ca1ddb50dbfbdd54deca97db1201ead"
       url: "https://pub.dev"
     source: hosted
-    version: "1.9.0"
+    version: "2.2.1"
   realm_dart:
     dependency: transitive
     description:
       name: realm_dart
-      sha256: "55cf02d26b0775e79570cf0ba6e4036a10c66250b99cb8f1ee41d71057206a7f"
+      sha256: d8e4d11a0f7a1c3eae5f059135d0be0aac67643b93cf083ab84f4726718d5ad4
       url: "https://pub.dev"
     source: hosted
-    version: "1.9.0"
+    version: "2.2.1"
   realm_generator:
     dependency: transitive
     description:
       name: realm_generator
-      sha256: "6d26ca214aad1b49f37a1a86f3216f19a25657d38d82cefb16551a35aa316ec1"
+      sha256: "2292d91558c9f53779261188d67cb1a456664f5b9be72dfdc43c1faae07e6638"
       url: "https://pub.dev"
     source: hosted
-    version: "1.9.0"
+    version: "2.2.1"
   riverpod:
     dependency: transitive
     description:
@@ -632,6 +648,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.1"
+  type_plus:
+    dependency: transitive
+    description:
+      name: type_plus
+      sha256: d5d1019471f0d38b91603adb9b5fd4ce7ab903c879d2fbf1a3f80a630a03fcc9
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.1"
   typed_data:
     dependency: transitive
     description:
@@ -690,4 +714,4 @@ packages:
     version: "3.1.2"
 sdks:
   dart: ">=3.3.0 <4.0.0"
-  flutter: ">=3.10.0"
+  flutter: ">=3.19.0"

@@ -69,13 +69,50 @@ class Account extends _Account with RealmEntity, RealmObjectBase, RealmObject {
       RealmObjectBase.getChanges<Account>(this);
 
   @override
+  Stream<RealmObjectChanges<Account>> changesFor([List<String>? keyPaths]) =>
+      RealmObjectBase.getChangesFor<Account>(this, keyPaths);
+
+  @override
   Account freeze() => RealmObjectBase.freezeObject<Account>(this);
 
-  static SchemaObject get schema => _schema ??= _initSchema();
-  static SchemaObject? _schema;
-  static SchemaObject _initSchema() {
+  EJsonValue toEJson() {
+    return <String, dynamic>{
+      'id': id.toEJson(),
+      'userName': userName.toEJson(),
+      'emailAddress': emailAddress.toEJson(),
+      'password': password.toEJson(),
+      'accessToken': accessToken.toEJson(),
+      'refreshToken': refreshToken.toEJson(),
+    };
+  }
+
+  static EJsonValue _toEJson(Account value) => value.toEJson();
+  static Account _fromEJson(EJsonValue ejson) {
+    return switch (ejson) {
+      {
+        'id': EJsonValue id,
+        'userName': EJsonValue userName,
+        'emailAddress': EJsonValue emailAddress,
+        'password': EJsonValue password,
+        'accessToken': EJsonValue accessToken,
+        'refreshToken': EJsonValue refreshToken,
+      } =>
+        Account(
+          fromEJson(id),
+          userName: fromEJson(userName),
+          emailAddress: fromEJson(emailAddress),
+          password: fromEJson(password),
+          accessToken: fromEJson(accessToken),
+          refreshToken: fromEJson(refreshToken),
+        ),
+      _ => raiseInvalidEJson(ejson),
+    };
+  }
+
+  static final schema = () {
     RealmObjectBase.registerFactory(Account._);
-    return const SchemaObject(ObjectType.realmObject, Account, 'Account', [
+    register(_toEJson, _fromEJson);
+    return SchemaObject(ObjectType.realmObject, Account, 'Account', [
       SchemaProperty('id', RealmPropertyType.objectid, primaryKey: true),
       SchemaProperty('userName', RealmPropertyType.string, optional: true),
       SchemaProperty('emailAddress', RealmPropertyType.string, optional: true),
@@ -83,5 +120,8 @@ class Account extends _Account with RealmEntity, RealmObjectBase, RealmObject {
       SchemaProperty('accessToken', RealmPropertyType.string, optional: true),
       SchemaProperty('refreshToken', RealmPropertyType.string, optional: true),
     ]);
-  }
+  }();
+
+  @override
+  SchemaObject get objectSchema => RealmObjectBase.getSchema(this) ?? schema;
 }

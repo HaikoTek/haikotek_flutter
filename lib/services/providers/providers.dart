@@ -30,6 +30,7 @@ final pAuthProvider = ChangeNotifierProvider((ref) {
 final databaseProvider = (String dbName) async {
   Configuration.defaultRealmName = dbName;
   final config = Configuration.local([Account.schema, Credential.schema]);
+  print(config.path);
   _realm = Realm(config);
 };
 

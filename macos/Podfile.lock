@@ -1,6 +1,6 @@
 PODS:
   - FlutterMacOS (1.0.0)
-  - realm (1.6.1):
+  - realm (2.2.1):
     - FlutterMacOS
 
 DEPENDENCIES:
@@ -15,8 +15,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FlutterMacOS: 8f6f14fa908a6fb3fba0cd85dbd81ec4b251fb24
-  realm: 28f202848203c41538bb9048be1ced54431127ac
+  realm: 3f3b10bc085d46b972158beda34e0c221d1deeed
 
 PODFILE CHECKSUM: 236401fc2c932af29a9fcf0e97baeeb2d750d367
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.15.2

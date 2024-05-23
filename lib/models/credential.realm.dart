@@ -68,14 +68,50 @@ class Credential extends _Credential
       RealmObjectBase.getChanges<Credential>(this);
 
   @override
+  Stream<RealmObjectChanges<Credential>> changesFor([List<String>? keyPaths]) =>
+      RealmObjectBase.getChangesFor<Credential>(this, keyPaths);
+
+  @override
   Credential freeze() => RealmObjectBase.freezeObject<Credential>(this);
 
-  static SchemaObject get schema => _schema ??= _initSchema();
-  static SchemaObject? _schema;
-  static SchemaObject _initSchema() {
+  EJsonValue toEJson() {
+    return <String, dynamic>{
+      'id': id.toEJson(),
+      'userId': userId.toEJson(),
+      'tokenType': tokenType.toEJson(),
+      'expiresIn': expiresIn.toEJson(),
+      'accessToken': accessToken.toEJson(),
+      'refreshToken': refreshToken.toEJson(),
+    };
+  }
+
+  static EJsonValue _toEJson(Credential value) => value.toEJson();
+  static Credential _fromEJson(EJsonValue ejson) {
+    return switch (ejson) {
+      {
+        'id': EJsonValue id,
+        'userId': EJsonValue userId,
+        'tokenType': EJsonValue tokenType,
+        'expiresIn': EJsonValue expiresIn,
+        'accessToken': EJsonValue accessToken,
+        'refreshToken': EJsonValue refreshToken,
+      } =>
+        Credential(
+          fromEJson(id),
+          userId: fromEJson(userId),
+          tokenType: fromEJson(tokenType),
+          expiresIn: fromEJson(expiresIn),
+          accessToken: fromEJson(accessToken),
+          refreshToken: fromEJson(refreshToken),
+        ),
+      _ => raiseInvalidEJson(ejson),
+    };
+  }
+
+  static final schema = () {
     RealmObjectBase.registerFactory(Credential._);
-    return const SchemaObject(
-        ObjectType.realmObject, Credential, 'Credential', [
+    register(_toEJson, _fromEJson);
+    return SchemaObject(ObjectType.realmObject, Credential, 'Credential', [
       SchemaProperty('id', RealmPropertyType.objectid, primaryKey: true),
       SchemaProperty('userId', RealmPropertyType.objectid, optional: true),
       SchemaProperty('tokenType', RealmPropertyType.string, optional: true),
@@ -83,5 +119,8 @@ class Credential extends _Credential
       SchemaProperty('accessToken', RealmPropertyType.string, optional: true),
       SchemaProperty('refreshToken', RealmPropertyType.string, optional: true),
     ]);
-  }
+  }();
+
+  @override
+  SchemaObject get objectSchema => RealmObjectBase.getSchema(this) ?? schema;
 }

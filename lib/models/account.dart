@@ -1,7 +1,7 @@
 import 'package:realm/realm.dart';
 
 // Realm: Declare a part file . Run `dart run realm generate`
-part 'account.g.dart';
+part 'account.realm.dart';
 
 // Realm: Creating a Realm object data model class
 
